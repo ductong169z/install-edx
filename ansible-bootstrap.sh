@@ -134,7 +134,8 @@ fi
 apt-get update -y
 
 if [[ "${SHORT_DIST}" != focal ]] ;then
-  apt-get install -y python2.7 python2.7-dev python-pip python-apt python-jinja2 build-essential sudo git-core libmysqlclient-dev libffi-dev libssl-dev
+  apt-get install -y python2.7 python2.7-dev python-
+  python-apt python-jinja2 build-essential sudo git-core libmysqlclient-dev libffi-dev libssl-dev
 else
   apt-get install -y python3-pip python3-apt python3-jinja2 build-essential sudo git-core libmysqlclient-dev libffi-dev libssl-dev
 fi
@@ -145,7 +146,7 @@ apt-get install -y python${PYTHON_VERSION} python${PYTHON_VERSION}-dev python3-p
 # Applies to Ubuntu 20.04 Focal
 if [[ "${SHORT_DIST}" != trusty ]] && [[ "${SHORT_DIST}" != xenial ]] && [[ "${SHORT_DIST}" != bionic ]] ;then
   sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
-  sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+  sudo update-alternatives --install /usr/local/bin/pip pip /usr/local/bin/pip3 1
 fi
 
 python${PYTHON_VERSION} -m pip install --upgrade pip=="${PIP_VERSION}"
